@@ -25,7 +25,7 @@ PFE_AVM_2023-main/
 │   ├── User_Aviation/         # Application spécifique à la gestion des utilisateurs/aviation
 │   └── manage.py              # Utilitaire d'administration Django
 ├── requirements.txt           # Liste des dépendances Python du projet
-└── .gitignore                 # Fichiers et dossiers à ignorer par Git
+├── .gitignore                 # Fichiers et dossiers à ignorer par Git
 └── README.md                  # Ce fichier
 
 
