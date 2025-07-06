@@ -10,3 +10,7 @@ __pycache__/
 .vscode/ # Dossiers de configuration VS Code
 *.log # Fichiers de log
 *.sqlite3 # Base de données SQLite (si utilisée et non versionnée)
+
+# Ignorer le dossier de documentation et le rapport final
+docs/
+Memoire_046.pdf # Si le PDF n'est pas dans un dossier docs et que vous voulez l'ignorer directement
