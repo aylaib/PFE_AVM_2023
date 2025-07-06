@@ -14,8 +14,6 @@ Ce projet a été développé en utilisant les technologies suivantes :
 ## 📁 Structure du Répertoire
 Voici un aperçu de la structure principale du code :
 PFE_AVM_2023-main/
-├── docs/                      # Contient le rapport final du PFE
-│   └── Memoire_046.pdf
 ├── src/                       # Répertoire principal du code source Django
 │   ├── admin_app/             # Application pour l'interface d'administration
 │   ├── media/                 # Fichiers médias (images, etc.) téléchargés
