@@ -1,0 +1,60 @@
+{% extends 'User_AVM/baseAV.html' %}
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'User_AVM/css/bootstrap.min.css' %}">
+  
+
+
+</head>
+
+<body>
+         {% block content %}
+
+
+
+
+
+
+         <div class="container mt-5">
+        
+            <h2 class="modal-title fs-4" id="exampleModalLabel" style="color:#002366;">Supprimer ma commande</h2>          
+            <hr class="w-25">             
+            <h5 class="mb-4"> Vous étes sure ?</h5>
+              
+        
+            <form  action="{% url 'delete_cmd' cmd_MR.id %}" method="POST">
+                {% csrf_token %}
+    
+             
+            <a  href="{% url 'mesCmdsAV' %}" class="btn btn-secondary fw-medium" >Retour</a>
+           
+            <button type="submit" class="btn bg-danger text-white fw-medium" style="margin-left:10px">Supprimer</button>
+            </form>
+    
+         </div>
+
+
+
+
+
+
+
+         {% endblock %}
+
+
+
+
+         <script src="{% static 'User_AVM/js/bootstrap.min.js' %}"></script>
+         <script src="{% static 'User_AVM/js/bootstrap.bundle.min.js' %}"></script>
+         <script src="{% static 'User_AVM/js/popper.min.js' %}"></script>
+     
+</body>
+     
+</html>

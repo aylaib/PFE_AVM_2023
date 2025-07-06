@@ -1,0 +1,268 @@
+{% extends 'User_AVM/baseAV.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naftal AVM - e-commerce </title>
+
+    <link rel="icon" type="image/png" href="{% static 'img/logos/logo-naftalsvg.png' %}">
+    <link rel="stylesheet" href="{% static 'User_AVM/css/bootstrap.min.css' %}">
+  
+
+</head>
+
+<body>
+
+    {% block content %}
+  
+  
+
+
+ {% if request.user.clientav.type_client == 'Aviation' %}
+  
+    
+    <div class="container-fluid mt-5">
+        {% if nbrCmd_AV == 0 %}
+
+        <h1 class="text-center mt-5" style="color:#002366;">Tu n'a Aucune Commande pour l'instant</h1>
+
+    {% else %}
+    <div class="details">
+        <div class="recentOrders ">
+            <div class="cardHeader">
+                <h2>Mes Commandes</h2>
+            <!--    <a href="#" class="btn">Voir tous</a> -->
+            </div>
+
+            <table>
+                <thead>
+                    <tr class="text-center fs-5">
+                        <td>Produit</td>
+                        <td>Quantity</td>
+                        <td>Prix total</td>
+                        <td>Site de Livraison</td>
+                        <td>Date</td>
+                        <td>Etat commande</td>
+                        <td>Payement</td>
+                        <td class="text-center">Date de Livraison</td>
+                        <td>Action</td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for cmd in page_objAV %}
+                    <tr class="text-center fw-medium">
+                        <td>{{cmd.produit}}</td>
+                        <td class="text-center">{{cmd.quantity}}</td>
+                        {% if cmd.type_deviseAv == 'DA' %}
+                        <td>{{cmd.price}} DA</td>
+                        {% else %}
+                        <td>{{cmd.price}} $</td>
+                        {% endif %}
+                        <td>{{cmd.site_Livraison_Aviation}}</td>
+                        <td>{{cmd.date}}</td>
+                        {% if cmd.Confirmer_Commande is True %}
+                        <td><span class="status delivered p-2 fw-bolder">Commande Confirmer</span></td>
+                        {% elif cmd.Annuler_Commande is True %}
+                        <td><span class="status return p-2 fw-bolder">Commande Annulé</span></td>
+                        {% elif cmd.Annuler_Commande is False and cmd.Confirmer_Commande is False  %}
+                        <td><span class="status pending p-2 fw-bolder" style="font-size:12px">Commande en train de traitement</span></td>
+                        {% endif %}
+
+                        {% if cmd.Confirmer_Commande is False and cmd.Annuler_Commande is False%}
+                        <td>--</td>
+                       {% elif cmd.Annuler_Commande is True %}
+                        <td class="text-center">--</td>
+                       {% elif cmd.Confirmer_Commande is True and cmd.etat_payementav is False %}
+                       <td><a href="{% url 'payementAV' cmd.id %}" class="btn btn-sm rounded-4 fw-bolder d-flex align-items-center justify-content-center m-auto" style="width: 100px; color:black; background-color:#FFC926;"> <span style="margin-right:5px;">Payer</span><ion-icon name="card"></ion-icon></a></td>
+                       {% elif cmd.Confirmer_Commande is True and cmd.etat_payementav is True %}
+                       <td style="color:#FFC926" class="fs-5 fw-bolder"> paiement réussi <span class="fs-5"> <ion-icon name="checkmark-done-outline"></ion-icon> </span></td>
+                       {% endif %}
+
+                      {% if cmd.Confirmer_Commande is False and cmd.Annuler_Commande is False%}
+                       <td>--</td>
+                      {% elif cmd.Annuler_Commande is True %}
+                       <td class="text-center" >--</td>
+                      {% elif cmd.Confirmer_Commande is True and cmd.etat_payementav is False %}
+                       <td>--</td>
+                      {% elif cmd.Confirmer_Commande is True and cmd.etat_payementav is True and cmd.date_Livraison_av is null %}
+                       <td class="text-center">Veuillez attendre que <br> la date soit fixée</td>
+                      {% elif cmd.Confirmer_Commande is True and cmd.etat_payementav is True and cmd.date_Livraison_av is not null %}
+                       <td class="text-center">{{cmd.date_Livraison_av}}</td>
+                     {% endif %}
+
+                     {% if cmd.Confirmer_Commande is False and cmd.Annuler_Commande is False %}
+                     <td class="text-center fs-4"><div><a href="{% url 'update_cmdav' cmd.id %}" style="margin-right:3px;"><ion-icon name="documents-outline"></ion-icon></a> <a href="{% url 'delete_cmdav' cmd.id %}" class="text-danger" style="margin-left:3px;"><ion-icon name="trash-outline"></ion-icon></a></div></td>
+                     {% elif cmd.Confirmer_Commande is True and cmd.date_Livraison_av is not null %}
+                     <td class="text-center ok fs-3"><a href="{% url 'bon_cmdAV' cmd.id %}"><ion-icon name="print-outline"></ion-icon></a></td>
+                     {% else %}
+                     <td class="text-center ok">--</td>
+                     {% endif %}
+                        
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+
+    
+
+
+
+    </div>
+      
+
+    {% if page_objAV.has_other_pages %}
+    <ul class="pagination" style="margin-left:20px">
+        {% if page_objAV.has_previous %}
+        <li class="page-item ">
+          <a class="page-link fw-medium" href="?page={{page_objAV.previous_page_number}}" style="color:#002366;">Previous</a>
+        </li>
+        {% endif %}
+        {% for i in page_objAV.paginator.page_range %}
+        <li class="page-item"><a class="page-link fw-medium" style="color:#FFC926; background-color:#002366;" href="?page={{i}}">{{i}}</a></li>
+        {% endfor %}
+        {% if page_objAV.has_next %}
+        <li class="page-item">
+          <a class="page-link fw-medium" href="?page={{page_objAV.next_page_number}}"  style="color:#002366;">Next</a>
+        </li>
+        {% endif %}
+      </ul>
+    {% endif %}
+    
+ {% elif request.user.clientav.type_client == 'Marine' %}
+
+
+
+
+
+ 
+ <div class="container-fluid mt-5">
+    {% if nbrCmd_MR == 0 %}
+
+    <h1 class="text-center mt-5" style="color:#002366;">Tu n'a Aucune Commande pour l'instant</h1>
+
+{% else %}
+<div class="details">
+    <div class="recentOrders ">
+        <div class="cardHeader">
+            <h2>Mes Commandes</h2>
+        </div>
+
+        <table>
+            <thead>
+                <tr class="text-center fs-5">
+                    <td>Produit</td>
+                    <td>Quantity</td>
+                    <td>Prix total</td>
+                    <td>Site de Livraison</td>
+                    <td>Date</td>
+                    <td>Etat commande</td>
+                    <td>Payement </td>
+                    <td class="text-center">Date de Livraison</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for cmd in page_objMR %}
+                <tr class="text-center fw-medium">
+                    <td>{{cmd.produitmr}}</td>
+                    <td class="text-center">{{cmd.quantitymr}}</td>
+                    {% if cmd.type_deviseMr == 'DA' %}
+                        <td>{{cmd.pricemr}} DA</td>
+                    {% else %}
+                        <td>{{cmd.pricemr}} $</td>
+                    {% endif %}
+                    <td>{{cmd.site_Livraison_Marine}}</td>
+                    <td>{{cmd.dateC}}</td>
+                    {% if cmd.Confirmer_Commande_mr is True %}
+                     <td><span class="status delivered p-2 fw-bolder">Commande Confirmer</span></td>
+                    {% elif cmd.Annuler_Commande_mr is True %}
+                     <td><span class="status return p-2 fw-bolder">Commande Annulé</span></td>
+                    {% elif cmd.Annuler_Commande_mr is False and cmd.Confirmer_Commande_mr is False  %}
+                     <td><span class="status pending p-2 fw-bolder" style="font-size:12px">Commande en train de traitement</span></td>
+                    {% endif %}
+
+                    {% if cmd.Confirmer_Commande_mr is False and cmd.Annuler_Commande_mr is False%}
+                     <td></td>
+                    {% elif cmd.Annuler_Commande_mr is True %}
+                     <td class="text-center">--</td>
+                    {% elif cmd.Confirmer_Commande_mr is True and cmd.etat_payementmr is False %}
+                    <td><a href="{% url 'payementMR' cmd.id %}" class="btn btn-sm rounded-4 fw-bolder d-flex align-items-center justify-content-center m-auto bg-gardient" style="width: 100px; color:black; background-color:#FFC926;"> <span style="margin-right:5px;">Payer</span><ion-icon name="card"></ion-icon></a></td>
+                    {% elif cmd.Confirmer_Commande_mr is True and cmd.etat_payementmr is True %}
+                    <td style="color:#FFC926" class="fs-5 fw-bolder"> paiement réussi <span class="fs-5"> <ion-icon name="checkmark-done-outline"></ion-icon> </span></td>
+                    {% endif %}
+
+                  
+                    {% if cmd.Confirmer_Commande_mr is False and cmd.Annuler_Commande_mr is False%}
+                       <td></td>
+                      {% elif cmd.Annuler_Commande_mr is True %}
+                       <td class="text-center ok">--</td>
+                      {% elif cmd.Confirmer_Commande_mr is True and cmd.etat_payementmr is False %}
+                       <td>--</td>
+                      {% elif cmd.Confirmer_Commande_mr is True and cmd.etat_payementmr is True and cmd.date_Livraison_mr is null %}
+                      <td class="text-center">Veuillez attendre que <br> la date soit fixée</td>
+                      {% elif cmd.Confirmer_Commande_mr is True and cmd.etat_payementmr is True and cmd.date_Livraison_mr is not null %}
+                       <td class="text-center">{{cmd.date_Livraison_mr}}</td>
+                      {% elif cmd.date_Livraison_mr is not null and cmd.date_Livraison_mr < date_aujourdhui %}
+                       <td>Commande Déja Livrée</td>
+                     {% endif %}
+
+                     {% if cmd.Confirmer_Commande_mr is False and cmd.Annuler_Commande_mr is False %}
+                     <td class="text-center fs-4"><div><a href="{% url 'update_cmd' cmd.id %}" style="margin-right:3px;"><ion-icon name="documents-outline"></ion-icon></a> <a href="{% url 'delete_cmd' cmd.id %}" class="text-danger" style="margin-left:3px;"><ion-icon name="trash-outline"></ion-icon></a></div></td>
+                    {% elif cmd.Confirmer_Commande_mr is True and cmd.date_Livraison_mr is not null %}
+                     <td class="text-center ok fs-3"><a href="{% url 'bon_cmdMR' cmd.id %}"><ion-icon name="print-outline"></ion-icon></a></td>
+                     {% else %}
+                     <td class="text-center ok">--</td>
+                     {% endif %}
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+</div>
+
+{% if page_objMR.has_other_pages %}
+<ul class="pagination" style="margin-left:20px;">
+    {% if page_objMR.has_previous %}
+    <li class="page-item ">
+      <a class="page-link fw-medium" href="?page={{page_objMR.previous_page_number}}" style="color:#002366;">Previous</a>
+    </li>
+    {% endif %}
+    {% for i in page_objMR.paginator.page_range %}
+    <li class="page-item "><a class="page-link fw-medium" style="color:#FFC926; background-color:#002366;" href="?page={{i}}">{{i}}</a></li>
+    {% endfor %}
+    {% if page_objMR.has_next %}
+    <li class="page-item">
+      <a class="page-link fw-medium" href="?page={{page_objMR.next_page_number}}" style="color:#002366;">Next</a>
+    </li>
+    {% endif %}
+  </ul>
+{% endif %}
+
+
+
+
+ {% endif %}
+
+
+    {% endblock %}
+  
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
+    <script src="{% static 'User_AVM/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'User_AVM/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'User_AVM/js/popper.min.js' %}"></script>
+
+</body>
+</html>

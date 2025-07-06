@@ -1,0 +1,121 @@
+{% extends 'User_AVM/baseAV.html' %}
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'User_AVM/css/bootstrap.min.css' %}">
+  
+
+
+</head>
+
+<body>
+         {% block content %}
+
+
+         <div class="container mt-5">
+
+
+   
+
+          <form method="POST">
+          
+          
+          
+            <h2 class="h1-responsive font-weight-bold text-center mb-5" style="color:#002366; font-weight: 600;">Formulaire de Modification Commande</h2>
+                <div class="card mx-3 mt-n5 shadow-lg" style="border-radius: 10px; border-left:8px #FFC926 solid; border-right: none; border-top:none; border-bottom:none">
+                 <div class="card-body">
+                   <h4 class="card-title mb-4 text-uppercase" style="color:#002366;">Commander</h4>
+                   
+                   <form method='POST'> 
+            
+                    {% csrf_token %}
+                     <div class="row">
+                       <div class="col">
+                         <div class="form mb-3">
+                            <label for="id_produit" class="mb-2">Produit:</label></th>
+                              
+                            <select name="produit" class="form-control" required id="id_produit">
+                              <option value="{{cmd_AV.produit.id}}">{{cmd_AV.produit}}</option>
+                        
+                              {% for prdAV in prdAV %}
+                              {% if prdAV.nomP != cmd_AV.produit.nomP %}
+                                <option value="{{prdAV.id}}">{{prdAV.nomP}}</option>
+                              {% endif %}
+                              {% endfor %}
+                        
+                            </select>
+                    
+                         </div>
+                       </div>
+                       <div class="col">
+                         <div class=" mb-4">
+                            
+                            <label for="id_quantity" class="mb-2">Quantité:</label>
+                            <input type="number" name="quantity" required id="id_quantity" class="form-control" value="{{cmd_AV.quantity}}">
+                  
+                         </div>
+                       </div>
+                     </div>
+
+                     <div class="form mb-4">
+                      <label for="id_type_deviseAv" class="mb-2">Type Devise:</label>   
+        
+                      <select name="type_deviseAv" class="form-control" required id="id_type_deviseAv">
+                        <option value="{{cmd_AV.type_deviseAv}}" selected>{{cmd_AV.type_deviseAv}}</option>
+                  
+                        {% if cmd_AV.type_deviseAv != '$' %}
+                          <option value="$">$</option>
+                        {% elif cmd_AV.type_deviseAv != 'DA' %}
+                        <option value="DA">DA</option>
+                        {% endif %}
+                        
+                  
+                      </select>
+                     
+                   </div>
+                     
+                     <div class="form mb-4">
+                        <label for="id_site_Livraison_Aviation" class="mb-2">Site Livraison Aviation:</label>   
+          
+                        <select name="site_Livraison_Aviation" class="form-control" required id="id_site_Livraison_Aviation">
+                          <option value="{{cmd_AV.site_Livraison_Aviation.id}}" selected>{{cmd_AV.site_Livraison_Aviation}}</option>
+                    
+                          {% for slAV in slAV %}
+                          {% if slAV.Nom_SiteAV != cmd_AV.site_Livraison_Aviation.Nom_SiteAV %}
+                            <option value="{{slAV.id}}">{{slAV.Nom_SiteAV}}</option>
+                          {% endif %}
+                          {% endfor %}
+                    
+                        </select>
+                       
+                     </div>
+                   <!--  <div class="form-check form-switch mb-3">
+                       <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                       <label class="form-check-label" for="flexSwitchCheckChecked">I agree to the Terms and Conditions of this Website.</label>
+                     </div>  -->
+                     <button type="submit" class="btn btn-block submit-btn fw-bolder d-flex align-items-center" style='background:#FFC926; color:#002366;'><span style="margin-right:3px;">Modifier Votre Commande</span> <ion-icon name="paper-plane"></ion-icon></button> 
+                   </form>
+                 </div>
+               </div>
+            
+
+
+
+         {% endblock %}
+
+
+
+
+         <script src="{% static 'User_AVM/js/bootstrap.min.js' %}"></script>
+         <script src="{% static 'User_AVM/js/bootstrap.bundle.min.js' %}"></script>
+         <script src="{% static 'User_AVM/js/popper.min.js' %}"></script>
+     
+</body>
+     
+</html>

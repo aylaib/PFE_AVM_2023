@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naftal AVM - e-commerce </title>
+
+    <link rel="icon" type="image/png" href="{% static 'img/logos/logo-naftalsvg.png' %}">
+    <link rel="stylesheet" href="{% static 'User_AVM/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'User_AVM/css/DesPrint.css' %}" media="print" />
+</head>
+
+<style>
+    td, th {
+        border: 2px solid black;
+        text-align: left;
+        padding: 8px;
+      }
+      
+      
+@page {
+    size: A2 portrait;
+    margin: 20mm 30mm;
+    }
+    
+</style>
+
+<body>
+
+
+    <div class="container mt-5">
+     
+        <div class="border border-2 border-black rounded-4" style="position:relative">
+           <img class="text-start" style="width: 120px; height:60px; position:absolute; top:10px; left:20px" src="{% static 'img/logos/LogoNAFTAL.svg.png' %}" alt="">
+           <h1 class="text-center mt-2 mb-4">NAFTAL AVM</h1>
+           <h6 id="cr" class="text-center mb-4">Adresse: Houari Boumediene Airport
+            B.P 70 Dar El Beida
+            Algiers - Algeria </h6>
+            <h6 style="position:relative; margin-left:378px"><span id="cr2">Email: avm.veillecom@naftal.dz</span> <span id="cr3" style="position:relative; margin-left:150px"> Tél: (213) 21 50 92 96 </span></h6>
+
+        </div>
+
+        <div class="d-flex justify-content-center">
+         <div class="border border-2 border-black rounded-4 mt-4 w-25" >
+            <h3 id="cr6" class="text-center">Commande N°: {{cmd_AV.id}}</h3>
+         </div>
+        </div>
+
+        <div class="border border-2 border-black rounded-4 mt-4">
+            <div class="d-flex justify-content-sm-between mb-3"><span class="mt-3" style="margin-left:30px"><h6>Client: {{request.user}}</h6></span> <span class="text-end mt-3" style="margin-right:200px"><h6 id="cr4">N° Tél: {{request.user.clientav.phone}}</h6></span></div>
+            <div class="d-flex justify-content-sm-between"><span class="mb-1" style="margin-left:30px"><h6>Adresse: {{cmd_AV.site_Livraison_Aviation}}</h6></span> <span class="text-end mb-1" style="margin-right:200px"><h6 id="cr5">Le: {{cmd_AV.date}}</h6></span></div>
+
+        </div>
+
+        <div class="mt-4">
+            <table class="w-100 border border-2 border-black">
+                <tr class="border border-2 border-black">
+                  <th>N° Produit</th>
+                  <th>Désignation</th>
+                  <th>Quantity</th>
+                  <th>Prix</th>
+                  <th>Type</th>
+                </tr>
+                <tr class="border border-2 border-black">
+                  <td>{{cmd_AV.produit.id}}</td>
+                  <td>{{cmd_AV.produit.nomP}}</td>
+                  <td>{{cmd_AV.quantity}}</td>
+                  <td>{{cmd_AV.price}} {{cmd_AV.type_deviseAv}}</td>
+                  <td>Aviation</td>
+                </tr>
+                
+              </table> 
+        </div>
+
+        <div class="mt-4">
+            <h6 class="mb-3"> N° Produit: {{cmd_AV.produit.id}}</h6>
+            <h6 class="mb-3">Qté Total: {{cmd_AV.quantity}}</h6>
+            <h6 class="mb-3">Payé: {{cmd_AV.price}} {{cmd_AV.type_deviseAv}}</h6>
+            <h6 class="mb-3">Validé par: Admin</h6>
+
+        </div
+        >
+        <div class="mt-5 d-flex justify-content-center">
+            <hr class="w-50">
+        </div>
+
+
+
+
+        <div class="mt-2">
+            
+            <button id="printbtn" class="btn btn-warning fw-2" onclick="myFunction()"><strong>Imprimer bon commande</strong></button>
+        </div>
+    </div>
+    
+
+
+
+    <script>
+        function myFunction() {
+          document.getElementById("printbtn").style.display = "none";
+          window.print();
+          document.getElementById("printbtn").style.display = "block";
+        }
+        </script>
+
+
+    <script src="{% static 'User_AVM/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'User_AVM/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'User_AVM/js/popper.min.js' %}"></script>
+
+
+
+</body>
+</html>

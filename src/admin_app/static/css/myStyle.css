@@ -1,0 +1,17 @@
+.btnClr_blue{
+    color: #fff;
+    background-color: #002366;
+}
+
+.btnClr_blue:hover{
+    color: #fff;
+    background-color: #002366;
+}
+
+.bt_blue:focus{
+    box-shadow:10px #002366;
+}
+
+.text_bl{
+    color: #002366;
+}

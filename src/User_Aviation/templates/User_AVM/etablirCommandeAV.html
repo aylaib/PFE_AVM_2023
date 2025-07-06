@@ -1,0 +1,195 @@
+{% extends 'User_AVM/baseAV.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'User_AVM/css/bootstrap.min.css' %}">
+  
+
+</head>
+<body>
+
+    {% block content %}
+
+<div class="container mt-5">
+
+{% if request.user.clientav.type_client == 'Aviation' %}
+
+
+<form method="POST">
+
+
+
+  <h2 class="h1-responsive font-weight-bold text-center mb-5" style="color:#002366; font-weight: 600;">Formulaire de Commande</h2>
+      <div class="card mx-3 mt-n5 shadow-lg" style="border-radius: 10px; border-left:8px #FFC926 solid; border-right: none; border-top:none; border-bottom:none">
+       <div class="card-body">
+         <h4 class="card-title mb-4 text-uppercase" style="color:#002366;">Commander</h4>
+         
+         <form method='POST'> 
+  
+          {% csrf_token %}
+           <div class="row">
+             <div class="col">
+               <div class="form mb-3">
+                  <label for="id_produit" class="mb-2">Produit:</label></th>
+                    
+                  <select name="produit" class="form-control" required id="id_produit">
+                    <option value="" selected>choisir un produit</option>
+              
+                    {% for prdAV in prdAV %}
+                      <option value="{{prdAV.id}}">{{prdAV.nomP}}</option>
+                    {% endfor %}
+              
+                  </select>
+          
+               </div>
+             </div>
+             <div class="col">
+               <div class=" mb-4">
+                  
+                  <label for="id_quantity" class="mb-2">Quantité:</label>
+                  <input type="number" name="quantity" required id="id_quantity" class="form-control">
+        
+               </div>
+             </div>
+           </div>
+
+           <div class="form mb-4">
+            <label for="id_type_deviseAv">Type devise:</label>
+ 
+             <select name="type_deviseAv" class="form-control" required id="id_type_deviseAv">
+              <option value="" selected>choisir une devise</option>
+
+                    <option value="DA">DA</option>
+                    <option value="$">$</option>
+             </select>
+
+           </div>
+
+           <div class="form mb-4">
+              <label for="id_site_Livraison_Aviation" class="mb-2">Site Livraison Aviation:</label>   
+
+              <select name="site_Livraison_Aviation" class="form-control" required id="id_site_Livraison_Aviation">
+                <option value="" selected>choisir un site de livraison</option>
+          
+                {% for slAV in slAV %}
+                  <option value="{{slAV.id}}">{{slAV.Nom_SiteAV}}</option>
+                {% endfor %}
+          
+              </select>
+             
+           </div>
+         <!--  <div class="form-check form-switch mb-3">
+             <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+             <label class="form-check-label" for="flexSwitchCheckChecked">I agree to the Terms and Conditions of this Website.</label>
+           </div>  -->
+           <button type="submit" class="btn btn-block submit-btn fw-bolder d-flex align-items-center" style='background:#FFC926; color:#002366;'><span style="margin-right:3px;">Envoyé Votre Commande</span> <ion-icon name="paper-plane"></ion-icon></button> 
+         </form>
+       </div>
+     </div>
+  
+
+
+
+
+
+{% elif request.user.clientav.type_client == 'Marine' %}
+
+
+
+<form method="POST">
+
+
+
+  <h2 class="h1-responsive font-weight-bold text-center mb-5" style="color:#002366; font-weight: 600;">Formulaire de Commande</h2>
+      <div class="card mx-3 mt-n5 shadow-lg" style="border-radius: 10px; border-left:8px #FFC926 solid; border-right: none; border-top:none; border-bottom:none">
+       <div class="card-body">
+         <h4 class="card-title mb-4 text-uppercase" style="color:#002366;">Commander</h4>
+         
+         <form method='POST'> 
+  
+          {% csrf_token %}
+           <div class="row">
+             <div class="col">
+               <div class="form mb-3">
+                  <label for="id_produitmr" class="mb-2">Produit:</label></th>
+                    
+                  <select name="produitmr" class="form-control" required id="id_produitmr">
+                    <option value="" selected>choisir un produit</option>
+                      {% for prdMR in prdMR %}
+                         <option value="{{prdMR.id}}">{{prdMR.nomP_mr}}</option>
+                      {% endfor %}
+                  </select>
+          
+               </div>
+             </div>
+             <div class="col">
+               <div class=" mb-4">
+                  
+                  <label for="id_quantitymr" class="mb-2">Quantité:</label>
+                  <input type="number" name="quantitymr" required id="id_quantitymr" class="form-control">
+        
+               </div>
+             </div>
+           </div>
+
+           <div class="form mb-4">
+                 <label for="id_type_deviseMr">Type devise:</label>
+      
+                  <select name="type_deviseMr" class="form-control" required id="id_type_deviseMr">
+                   <option value="" selected>choisir une devise</option>
+
+                         <option value="DA">DA</option>
+                         <option value="$">$</option>
+                  </select>
+
+                </div>
+
+
+           <div class="form mb-4">
+              <label for="id_site_Livraison_Marine" class="mb-2">Site Livraison Marine:</label>
+             
+              <select name="site_Livraison_Marine" class="form-control" required id="id_site_Livraison_Marine">
+                <option value="" selected>choisir un site de livraison</option>
+          
+                {% for slMR in slMR %}
+                  <option value="{{slMR.id}}">{{slMR.Nom_SiteMR}}</option>
+                {% endfor %}
+          
+              </select>
+           </div>
+         <!--  <div class="form-check form-switch mb-3">
+             <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+             <label class="form-check-label" for="flexSwitchCheckChecked">I agree to the Terms and Conditions of this Website.</label>
+           </div>  -->
+           <button type="submit" class="btn btn-block submit-btn fw-bolder d-flex align-items-center" style='background:#FFC926; color:#002366;'><span style="margin-right:3px;">Envoyé Votre Commande</span>  <ion-icon name="paper-plane"></ion-icon></button>
+         </form>
+       </div>
+     </div>
+  
+
+
+ 
+
+
+
+
+
+{% endif %}
+
+</div>
+
+    {% endblock %}
+  
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script src="{% static 'User_AVM/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'User_AVM/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'User_AVM/js/popper.min.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+#cr{
+margin-top: 40px;
+}
+
+#cr2{
+    position: relative;
+    right: 350px;
+}
+
+#cr3{
+    position: relative;
+    right: 20px;
+    bottom: 40px;
+}
+
+#cr4{
+    position: relative;
+    left: 150px;
+}
+
+#cr5{
+    position: relative;
+    left: 100px;
+}
+
+#cr6{
+   font-size:larger;
+}

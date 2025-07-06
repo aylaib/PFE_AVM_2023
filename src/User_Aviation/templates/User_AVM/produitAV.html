@@ -1,0 +1,396 @@
+{% extends 'User_AVM/baseAV.html' %}
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'User_AVM/css/bootstrap.min.css' %}">
+  
+
+
+</head>
+
+<body>
+         {% block content %}
+
+<!--
+             ======================= Cards ================== 
+            <div class="cardBox">
+                <div class="card">
+                    <div>
+                        <div class="numbers">1,504</div>
+                        <div class="cardName">Daily Views</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="eye-outline"></ion-icon>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers">80</div>
+                        <div class="cardName">Sales</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="cart-outline"></ion-icon>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers">284</div>
+                        <div class="cardName">Comments</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="chatbubbles-outline"></ion-icon>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers">$7,842</div>
+                        <div class="cardName">Earning</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="cash-outline"></ion-icon>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================ Order Details List ================= 
+            <div class="details">
+                <div class="recentOrders">
+                    <div class="cardHeader">
+                        <h2>Recent Orders</h2>
+                        <a href="#" class="btn">View All</a>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Name</td>
+                                <td>Price</td>
+                                <td>Payment</td>
+                                <td>Status</td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Star Refrigerator</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td><span class="status delivered">Delivered</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Dell Laptop</td>
+                                <td>$110</td>
+                                <td>Due</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Apple Watch</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td><span class="status return">Return</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Addidas Shoes</td>
+                                <td>$620</td>
+                                <td>Due</td>
+                                <td><span class="status inProgress">In Progress</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Star Refrigerator</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td><span class="status delivered">Delivered</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Dell Laptop</td>
+                                <td>$110</td>
+                                <td>Due</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Apple Watch</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td><span class="status return">Return</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Addidas Shoes</td>
+                                <td>$620</td>
+                                <td>Due</td>
+                                <td><span class="status inProgress">In Progress</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- ================= New Customers ================ 
+                <div class="recentCustomers">
+                    <div class="cardHeader">
+                        <h2>Recent Customers</h2>
+                    </div>
+
+                    <table>
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>David <br> <span>Italy</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>Amit <br> <span>India</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>David <br> <span>Italy</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>Amit <br> <span>India</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>David <br> <span>Italy</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>Amit <br> <span>India</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>David <br> <span>Italy</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>Amit <br> <span>India</span></h4>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    -->
+
+
+<div class="container mt-5 mb-5">
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+
+{% if request.user.clientav.type_client == 'Aviation' %}
+
+    {% for prdAV in prdAV %}
+    
+ <!--  <div class="col one" style="position:relative">
+        <img src="{% static 'User_AVM/images/img/promo.webp' %}" style="width:150px; height:90px; position:absolute; top:74%; right:55%; z-index:999" alt="">
+        <div class="card one" style=" box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);border:none; position:relative">
+            {% if prdAV.image.url != null %}
+          <img src="{{ prdAV.image.url }}" class="card-img-top border-bottom" alt="...">
+            {% endif %}
+          <div class="card-body">
+            <h5 class="card-title" style="color:#FFC926;">{{prdAV.nomP}}</h5>
+            <p class="card-text fw-medium" style="color:#002366;margin-top:10px">{{prdAV.description}}</p>
+            
+            <div class="fw-medium" style="margin-left:410px">
+            <span class="card-text text-end mb-1">{{prdAV.prix}} $ / 1L</span>
+            <span class="card-text text-end mb-1 text-danger" style="text-decoration:2px line-through black; margin-left:30px">{{pr_av}} $ / 1L</span>
+            </div>
+          </div>
+        </div>
+      </div>
+         
+--> 
+{% if prdAV.prP_av == None %}
+
+        <div class="col" style="">
+            <div class="card" style=" box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);border:none">
+              {% if prdAV.image.url != null %}
+              <img src="{{ prdAV.image.url }}" class="card-img-top border-bottom" style="height:500px" alt="Produit_Aviation.img">
+              {% endif %}
+              <div class="card-body">
+                  <h5 class="card-title" style="color:#FFC926;">{{prdAV.nomP}}</h5>
+                  <p class="card-text fw-medium" style="color:#002366;margin:15px 0">{{prdAV.description}}</p>
+                  <h6 class="card-text text-end mb-2">{{prdAV.prix}} DA</h6>
+                  <h6 class="card-text text-end mb-1">{{prdAV.prixD}} $</h6>
+              </div>
+            </div>
+          </div>
+
+        {% else %}
+
+        <div class="col one" >
+            <div class="card" style=" box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);border:none;">
+              {% if prdAV.image.url != null %}
+              <div style="position:relative;">
+              <img src="{{ prdAV.image.url }}" class="card-img-top border-bottom" style="height:500px" alt="Produit_Aviation.img">
+              <img src="{% static 'User_AVM/images/img/promo.webp' %}" style="width:150px; height:90px; position:absolute; top:90%; left:0%; z-index:999;" alt="">
+              </div>
+              {% endif %}
+              <div class="card-body">
+                  <h5 class="card-title" style="color:#FFC926;">{{prdAV.nomP}}</h5>
+                  <p class="card-text fw-medium" style="color:#002366;">{{prdAV.description}}</p>
+
+                  <div class="fw-medium" style="margin-left:410px">
+                    <span class="card-text text-end mb-1">{{prdAV.prP_av}} $</span>
+                    <span class="card-text text-end mb-1 text-danger" style="text-decoration:2px line-through black; margin-left:10px">{{prdAV.prix}}  $</span>
+                    </div>
+              </div>
+            </div>
+          </div>
+
+
+        {% endif %}
+
+    
+
+    {% endfor %}
+
+
+
+
+
+
+
+
+{% elif request.user.clientav.type_client == 'Marine' %}
+
+    {% for prdMR in prdMR %}
+    
+    <!--
+     <div class="col one" style="position:relative">
+        <img src="{% static 'User_AVM/images/img/promo.webp' %}" style="width:150px; height:90px; position:absolute; top:74%; right:55%; z-index:999;" alt="">
+        <div class="card one" style=" box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);border:none; position:relative">
+            {% if prdMR.image_mr.url != null %}
+          <img src="{{ prdMR.image_mr.url }}" class="card-img-top border-bottom" alt="...">
+            {% endif %}
+          <div class="card-body">
+            <h5 class="card-title" style="color:#FFC926;">{{prdMR.nomP_mr}}</h5>
+            <p class="card-text fw-medium" style="color:#002366;margin-top:10px">{{prdMR.description_mr}}</p>
+            
+            <div class="fw-medium" style="margin-left:410px">
+            <span class="card-text text-end mb-1">{{prdMR.prix_mr}} $ / 1L</span>
+            <span class="card-text text-end mb-1 text-danger" style="text-decoration:2px line-through black; margin-left:30px">{{pr}} $ / 1L</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      --> 
+
+      {% if prdMR.prP_mr == None %}
+
+      <div class="col one">
+        <div class="card one" style=" box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);border:none;">
+            {% if prdMR.image_mr.url != null %}
+          <img src="{{ prdMR.image_mr.url }}" class="card-img-top border-bottom" style="height:500px" alt="Produit_Marine.img">
+            {% endif %}
+          <div class="card-body">
+            <h5 class="card-title" style="color:#FFC926;">{{prdMR.nomP_mr}}</h5>
+            <p class="card-text fw-medium" style="color:#002366;margin:15px 0">{{prdMR.description_mr}}</p>
+            <h6 class="card-text text-end mb-2">{{prdMR.prix_mr}} DA</h6>
+            <h6 class="card-text text-end mb-1">{{prdMR.prix_mrD}} $</h6>
+          </div>
+        </div>
+      </div>
+
+      {% else %}
+
+      
+        <div class="col one" >
+        <div class="card one" style=" box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);border:none;">
+            {% if prdMR.image_mr.url != null %}
+          <div style="position:relative;">
+          <img src="{{ prdMR.image_mr.url }}" class="card-img-top border-bottom" style="height:500px;" alt="Produit_Marine.img">
+          <img src="{% static 'User_AVM/images/img/promo.webp' %}" style="width:150px; height:90px; position:absolute; top:90%; left:0%; z-index:999;" alt="">
+          </div>
+            {% endif %}
+          <div class="card-body">
+            <h5 class="card-title" style="color:#FFC926;">{{prdMR.nomP_mr}}</h5>
+            <p class="card-text fw-medium" style="color:#002366;margin-top:10px">{{prdMR.description_mr}}</p>
+
+            <div class="fw-medium" style="margin-left:410px">
+                <span class="card-text text-end mb-1">{{prdMR.prP_mr}} $</span>
+                <span class="card-text text-end mb-1 text-danger" style="text-decoration:2px line-through black; margin-left:30px">{{prdMR.prix_mr}}  $</span>
+                </div>
+            
+          </div>
+        </div>
+      </div>
+       {% endif %}
+
+
+      {% endfor %}
+
+      {% endif %}
+        
+      </div>
+
+    </div>
+   
+    {% endblock %}
+
+
+
+
+    <script src="{% static 'User_AVM/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'User_AVM/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'User_AVM/js/popper.min.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+{% extends 'User_AVM/baseAV.html' %}
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'User_AVM/css/bootstrap.min.css' %}">
+  
+
+
+</head>
+
+<body>
+         {% block content %}
+
+
+
+
+
+         <div class="container mt-5">
+
+
+
+  <h2 class="h1-responsive font-weight-bold text-center mb-5" style="color:#002366; font-weight: 600;">Formulaire de Modification Commande</h2>
+      <div class="card mx-3 mt-n5 shadow-lg" style="border-radius: 10px; border-left:8px #FFC926 solid; border-right: none; border-top:none; border-bottom:none">
+       <div class="card-body">
+         <h4 class="card-title mb-4 text-uppercase" style="color:#002366;">Commander</h4>
+         
+         
+         <form method='POST'> 
+  
+          {% csrf_token %}
+           <div class="row">
+             <div class="col">
+               <div class="form mb-3">
+                  <label for="id_produitmr" class="mb-2">Produit:</label></th>
+                    
+                  <select name="produitmr" class="form-control" required id="id_produitmr">
+                    <option selected  value="{{cmd_MR.produitmr.id}}">{{cmd_MR.produitmr}}</option>
+                      {% for prdMR in prdMR %}
+                         {% if prdMR.nomP_mr != cmd_MR.produitmr.nomP_mr %}
+                         <option value="{{prdMR.id}}">{{prdMR.nomP_mr}}</option>
+                         {% endif %}
+                      {% endfor %}
+                  </select>
+          
+               </div>
+             </div>
+             <div class="col">
+               <div class=" mb-4">
+                  
+                  <label for="id_quantitymr" class="mb-2">Quantité:</label>
+                  <input type="number" name="quantitymr" required id="id_quantitymr" class="form-control"  value="{{cmd_MR.quantitymr}}" >
+        
+               </div>
+             </div>
+           </div>
+
+
+           <div class="form mb-4">
+            <label for="id_type_deviseMr" class="mb-2">Type Devise:</label>   
+
+            <select name="type_deviseMr" class="form-control" required id="id_type_deviseMr">
+              <option value="{{cmd_MR.type_deviseMr}}" selected>{{cmd_MR.type_deviseMr}}</option>
+        
+              {% if cmd_MR.type_deviseMr != '$' %}
+                <option value="$">$</option>
+              {% elif cmd_MR.type_deviseMr != 'DA' %}
+              <option value="DA">DA</option>
+              {% endif %}
+              
+        
+            </select>
+           
+         </div>
+
+           <div class="form mb-4">
+              <label for="id_site_Livraison_Marine" class="mb-2">Site Livraison Marine:</label>
+             
+              <select name="site_Livraison_Marine" class="form-control" required id="id_site_Livraison_Marine">
+                <option value="{{cmd_MR.site_Livraison_Marine.id}}" selected>{{cmd_MR.site_Livraison_Marine}}</option>
+          
+                {% for slMR in slMR %}
+                {% if slMR.Nom_SiteMR != cmd_MR.site_Livraison_Marine.Nom_SiteMR %}
+                  <option value="{{slMR.id}}">{{slMR.Nom_SiteMR}}</option>
+                {% endif %}
+                {% endfor %}
+          
+              </select>
+           </div>
+         <!--  <div class="form-check form-switch mb-3">
+             <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+             <label class="form-check-label" for="flexSwitchCheckChecked">I agree to the Terms and Conditions of this Website.</label>
+           </div>  -->
+           <button type="submit" class="btn btn-block submit-btn fw-bolder d-flex align-items-center" style='background:#FFC926; color:#002366;'><span style="margin-right:3px;">Modifier Votre Commande</span>  <ion-icon name="paper-plane"></ion-icon></button>
+         </form>
+    
+       </div>
+     </div>
+
+
+         
+         </div>
+
+
+
+         {% endblock %}
+
+
+
+
+         <script src="{% static 'User_AVM/js/bootstrap.min.js' %}"></script>
+         <script src="{% static 'User_AVM/js/bootstrap.bundle.min.js' %}"></script>
+         <script src="{% static 'User_AVM/js/popper.min.js' %}"></script>
+     
+</body>
+     
+</html>

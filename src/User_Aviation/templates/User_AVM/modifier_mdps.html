@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'User_AVM/css/bootstrap.min.css' %}">
+  
+
+</head>
+
+
+
+<body>
+
+    {% block content %}
+
+  
+
+
+<div class="container " style="margin-top:180px">
+
+ 
+
+      <div class="card login-form">
+        <div class="card-body">
+            <h2 class="card-title text-center mb-4" style="color:#002366; font-weight: 600;">Modifier Votre Mot de passe</h2>
+            
+            <!--Password must contain one lowercase letter, one number, and be at least 7 characters long.-->
+            
+            <div class="card-text">
+                <form method="POST">
+                   {% csrf_token %}
+
+                   {% if messages %}
+
+                   {% for msg in messages %}
+                   
+                   {% if msg.tags == 'success' %}
+                   
+                   <div class="alert alert-success alert-dismissible fade show mt-2 text-center mb-4" style="width:800px" role="alert">
+                       <strong>{{msg}}</strong> 
+                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                     </div>
+                   
+                     
+                   {% endif %}
+                   {% endfor %}
+             
+                   {% endif %}
+
+                    <div class="form-group mb-4">
+
+                     <label for="id_old_password">Ancien Mot de passe :</label>
+                     <input type="password" name="old_password" autocomplete="current-password" autofocus required id="id_old_password" class="form-control form-control-sm">
+                
+                    </div>
+                    
+                    <div class="form-group mb-4">
+        
+                        <label for="id_new_password1">Nouveau Mot de passe :</label>
+                        <input type="password" name="new_password1" autocomplete="new-password" required id="id_new_password1" class="form-control form-control-sm">
+      
+                    </div>
+    
+                    <span class="helptext"><ul><li>Votre mot de passe ne doit pas être trop similaire à vos autres informations personnelles.</li><li>Votre mot de passe doit contenir au moins 8 caractères.</li><li>Votre mot de passe ne peut pas être un mot de passe couramment utilisé.</li><li>Votre mot de passe ne peut pas être entièrement numérique.</li></ul></span>
+            
+                    <div class="form-group mb-4">
+
+                        <label for="id_new_password2">Nouveau Mot de passe Confirmation :</label>        
+                        <input type="password" name="new_password2" autocomplete="new-password" required id="id_new_password2" class="form-control form-control-sm">
+
+                    </div>
+
+                    <button type="submit" class="btn btn-block submit-btn fw-medium" style='background:#FFC926; color:dark;'>Confirmer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <a href="{% url 'profile' %}" class="btn btn-block submit-btn fw-medium mt-3" style='background:#FFC926; color:dark; position:relative; left:1180px; bottom:70px; width:100px'>retour</a>
+
+
+</div>
+    {% endblock %}
+  
+
+    <script src="{% static 'User_AVM/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'User_AVM/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'User_AVM/js/popper.min.js' %}"></script>
+</body>
+</html>

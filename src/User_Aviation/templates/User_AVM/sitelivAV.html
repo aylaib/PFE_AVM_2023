@@ -1,0 +1,191 @@
+{% extends 'User_AVM/baseAV.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'User_AVM/css/bootstrap.min.css' %}">
+  
+
+</head>
+<body>
+
+    {% block content %}
+   
+  
+
+
+
+
+{% if request.user.clientav.type_client == 'Aviation' %}
+
+
+
+    <div class="row mt-5">
+            <div id="map" class="col-md-8 margin-bottom-40" style="height:600px;">
+            </div>
+            <div class="col-md-4">
+                <h2>Centres Aviation</h2>
+                <div class="row front-lists-v1">
+                    <ul class="list-unstyled">
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/1#modalav1" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> DAR EL BEIDA AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/2#modalav2" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> ORAN AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/3#modalav3" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> HASSI MESSAOUD AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/4#modalav4" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> CONSTANTINE AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/5#modalav5" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> BECHAR AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/6#modalav6" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> ANNABA AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/7#modalav7" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> ADRAR AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/8#modalav8" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> BORDJ BADJI MOKHTAR AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/9#modalav9" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> BEJAIA AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/10#modalav10" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> BATNA AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/11#modalav11" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> BISKRA AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/12#modalav12" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> DJANET AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/13#modalav13" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> El OUED AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/14#modalav14" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> EL GOLEA AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/15#modalav15" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> HASSI R&#039;MEL AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/16#modalav16" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> TEBESSA AIRPOT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/17#modalav17" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> TLEMCEN AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/18#modalav18" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> TIARET AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/19#modalav19" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> TAMENRASSET AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/20#modalav20" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> TINDOUF AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/21#modalav21" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> GHARDAIA AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/22#modalav22" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> IN AMENAS AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/23#modalav23" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> IN SALAH AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/24#modalav24" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> ILLIZI AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/25#modalav25" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> OUARGLA AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/26#modalav26" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> TIMIMOUNE AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/27#modalav27" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> SETIF AIRPORT</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/28#modalav28" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> El Harrach</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/29#modalav29" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> Alger 2</a></li>
+                                </div>
+                                                        <div class="col-md-6">
+                                    <li><a href="https://avm.naftal.dz/localisation/aviation/30#modalav30" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> CHLEF AIRPORT</a></li>
+                                </div>
+                                            </ul>
+                </div>
+       
+                
+            </div>
+    </div>
+    
+        <!-- END CONTAINER -->
+    </div>
+    <!-- END PAGE CONTAINER -->
+
+
+
+{% elif request.user.clientav.type_client == 'Marine' %}
+
+
+
+
+
+
+<div class="row mt-5">
+    <div id="map" class="col-md-8 margin-bottom-40" style="height:600px;">
+    </div>
+    <div class="col-md-4 mt-5" style="">
+        <h2>Centres Marines</h2>
+        <div class="row front-lists-v1">
+            <ul class="list-unstyled">
+                                                <div class="col-md-6">
+                                                    <li><a href="https://avm.naftal.dz/localisation/marine/1#modalma1" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> ALGIERS PORT</a></li>
+                        </div>
+                                                <div class="col-md-6">
+                                                    <li><a href="https://avm.naftal.dz/localisation/marine/2#modalma2" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> ANNABA PORT</a></li>
+                        </div>
+                                                <div class="col-md-6">
+                                                    <li><a href="https://avm.naftal.dz/localisation/marine/3#modalma3" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> ARZEW PORT</a></li>
+                        </div>
+                                                <div class="col-md-6">
+                                                    <li><a href="https://avm.naftal.dz/localisation/marine/4#modalma4" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> BEJAIA PORT</a></li>
+                        </div>
+                                                <div class="col-md-6">
+                                                    <li><a href="https://avm.naftal.dz/localisation/marine/5#modalma5" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> ORAN PORT</a></li>
+                        </div>
+                                                <div class="col-md-6">
+                                                    <li><a href="https://avm.naftal.dz/localisation/marine/6#modalma6" class="js-modal" style="margin-bottom: 4px;"><i class="icon-external-link"></i> SKIKDA PORT</a></li>
+                        </div>
+                                               
+             
+                                    </ul>
+        </div>
+
+    </div>
+</div>
+
+    <!-- END CONTAINER -->
+</div>
+<!-- END PAGE CONTAINER -->
+
+
+{% endif %}
+
+
+    {% endblock %}
+
+    <script src="{% static 'User_AVM/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'User_AVM/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'User_AVM/js/popper.min.js' %}"></script>
+  
+</body>
+</html>
