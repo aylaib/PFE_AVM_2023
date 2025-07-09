@@ -1,70 +1,62 @@
-# PFE_AVM_2023 : Site Web de Vente de Carburants et Lubrifiants Aviation & Marine
-
-## 🎯 Description du Projet
-Ce projet est une application web dynamique développée dans le cadre de mon **Mémoire de Licence en Ingénierie des Systèmes d'Information et des Logiciels** à l'Université des Sciences et de la Technologie Houari Boumediene (USTHB). Il s'agit d'un site de vente en ligne des produits carburants et lubrifiants destinés aux secteurs de l'aviation et de la marine, conçu pour l'organisme **NAFTAL Branche Carburants**.
-Le travail a été réalisé il y a environ 3 ans (soutenance le 05/06/2023).
-
-## 💻 Technologies Utilisées
-Ce projet a été développé en utilisant les technologies suivantes :
+# PFE_AVM_2023 : Aviation & Marine Fuel and Lubricant Sales Website
+## 🎯 Project Description
+This project is a dynamic web application developed as part of my **Bachelor's Thesis in Information Systems and Software Engineering** at the University of Science and Technology Houari Boumediene (USTHB). It is an online sales website for fuel and lubricant products intended for the aviation and marine sectors, designed for **NAFTAL Fuel Branch**.
+The work was completed approximately 3 years ago (defense on 05/06/2023).
+## 💻 Technologies Used
+This project was developed using the following technologies:
 * **Python**
-* **Django** (framework web)
-* **HTML, CSS, JavaScript** (pour le frontend)
-* **MySQL** (base de données relationnelle)
-
-## 📁 Structure du Répertoire
-Voici un aperçu de la structure principale du code :
+* **Django** (web framework)
+* **HTML, CSS, JavaScript** (for frontend)
+* **MySQL** (relational database)
+## 📁 Directory Structure
+Here's an overview of the main code structure:
 PFE_AVM_2023-main/
-├── src/                       # Répertoire principal du code source Django
-│   ├── admin_app/             # Application pour l'interface d'administration
-│   ├── media/                 # Fichiers médias (images, etc.) téléchargés
-│   ├── Produit/               # Application gérant les produits
-│   ├── project/               # Configuration principale du projet Django
-│   │   ├── settings.py        # Fichier de configuration
-│   │   └── urls.py            # Routes URL principales
-│   ├── user_app/              # Application pour l'interface utilisateur
-│   ├── User_Aviation/         # Application spécifique à la gestion des utilisateurs/aviation
-│   └── manage.py              # Utilitaire d'administration Django
-├── requirements.txt           # Liste des dépendances Python du projet
-├── .gitignore                 # Fichiers et dossiers à ignorer par Git
-└── README.md                  # Ce fichier
-
-
-## 🛠️ Guide d'Installation et d'Exécution (pour information)
-*Note : Ces étapes décrivent comment le projet était mis en place et exécuté au moment de sa conception.*
-
-1.  **Cloner le dépôt :**
+├── src/                       # Main Django source code directory
+│   ├── admin_app/             # Application for administration interface
+│   ├── media/                 # Media files (images, etc.) uploaded
+│   ├── Produit/               # Application managing products
+│   ├── project/               # Main Django project configuration
+│   │   ├── settings.py        # Configuration file
+│   │   └── urls.py            # Main URL routes
+│   ├── user_app/              # Application for user interface
+│   ├── User_Aviation/         # Specific application for aviation user management
+│   └── manage.py              # Django administration utility
+├── requirements.txt           # List of Python project dependencies
+├── .gitignore                 # Files and folders to be ignored by Git
+└── README.md                  # This file
+## 🛠️ Installation and Execution Guide (for reference)
+*Note: These steps describe how the project was set up and executed at the time of its conception.*
+1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/votre_nom_utilisateur/PFE_AVM_2023.git](https://github.com/votre_nom_utilisateur/PFE_AVM_2023.git)
+    git clone [https://github.com/your_username/PFE_AVM_2023.git](https://github.com/your_username/PFE_AVM_2023.git)
     ```
-2.  **Accéder au répertoire du projet :**
+2.  **Navigate to the project directory:**
     ```bash
     cd PFE_AVM_2023
     ```
-3.  **Créer et activer un environnement virtuel :**
+3.  **Create and activate a virtual environment:**
     ```bash
     python -m venv env_pfeavm
-    # Pour Windows :
+    # For Windows:
     .\env_pfeavm\Scripts\activate
-    # Pour Linux/macOS :
+    # For Linux/macOS:
     source env_pfeavm/bin/activate
     ```
-4.  **Installer les dépendances :**
+4.  **Install dependencies:**
     ```bash
     pip install -r requirements.txt
     ```
-5.  **Appliquer les migrations de la base de données :**
+5.  **Apply database migrations:**
     ```bash
     python src/manage.py migrate
     ```
-6.  **Démarrer le serveur de développement :**
+6.  **Start the development server:**
     ```bash
     python src/manage.py runserver
     ```
-    L'application serait alors accessible via votre navigateur à `http://127.0.0.1:8000/`.
-
-## 🤝 Auteurs
+    The application would then be accessible via your browser at `http://127.0.0.1:8000/`.
+## 🤝 Authors
 * **DIGUER Nedjemddine**
 * **LAIB Ayoub**
-
-## 🙏 Remerciements
-Nous tenons à exprimer notre sincère gratitude à notre promoteur, Monsieur BRADAIE Mustapha, pour son précieux encadrement et son soutien tout au long de la réalisation de ce Projet de Fin d'Études.
+## 🙏 Acknowledgments
+We would like to express our sincere gratitude to our supervisor, Mr. BRADAIE Mustapha, for his valuable guidance and support throughout the completion of this Final Year Project.
