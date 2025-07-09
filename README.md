@@ -60,3 +60,9 @@ PFE_AVM_2023-main/
 * **LAIB Ayoub**
 ## 🙏 Acknowledgments
 We would like to express our sincere gratitude to our supervisor, Mr. BRADAIE Mustapha, for his valuable guidance and support throughout the completion of this Final Year Project.
+
+## 📌 Citation
+If you use this project, please cite it as:
+
+LAIB Ayoub, DIGUER Nedjemddine (2025), *Aviation & Marine Fuel and Lubricant Sales Website*, GitHub repository: https://github.com/aylaib/PFE_AVM_2023
+
